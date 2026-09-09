@@ -5,11 +5,12 @@ using namespace std;
 
 int fruitsintobasket(vector<int> &nums){
     int n = nums.size();
+    if( n == 0) return 0;
     unordered_map<int,int>freq;
-    int left = 0;
-    int maxlen = 0;
+     int left = 0;
+     int maxfruits = 0;
 
-    for(int right = 0;right<n;right++){
+     for(int right = 0;right<n;right++){
         freq[nums[right]]++;
 
         while(freq.size() > 2){
@@ -19,24 +20,19 @@ int fruitsintobasket(vector<int> &nums){
             }
             left++;
         }
-        maxlen = max(maxlen,right-left+1);
-    }
-    return maxlen;
+        maxfruits = max(maxfruits, right-left+1);
+     }
+     return maxfruits;
 }
 
-int main(){
-    int n;
-    if(cin>>n){
-        vector<int> nums(n);
-        for(int i=0;i<n;i++){
-            cout<<"Enter numbers:"<<"\n";
-            cin>>nums[i];
-        }
-        cout<<fruitsintobasket(nums)<<" ";
+int main() {
+    vector<int> fruits = {1, 2, 1, 3, 2, 2}; 
+    cout << "Maximum fruits we can collect: " << fruitsintobasket(fruits) << "\n";
 
-        for(int k=0;k<n;k++){
-        cout<<nums[k];
-        }
-    }
+    
+    vector<int> fruits2 = {3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4};
+    cout << "Test 2: " << fruitsintobasket(fruits2) << "\n"; 
+    
+
     return 0;
 }

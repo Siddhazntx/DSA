@@ -4,8 +4,7 @@
 #include<unordered_set>
 using namespace std;
 
-class Solution {
-public:
+
     int longestConsecutive(vector<int>& nums) {
         int n = nums.size();
         if(n == 0) return 0;
@@ -27,4 +26,13 @@ public:
         }
         return longest;
     }
-};
+
+int main(){
+    int n;
+    vector<int> nums = {1,2,3,4,5,6,7,11,12,13,14,15,16,17,18,19,20};
+    longestConsecutive(nums);
+    
+}
+
+
+
