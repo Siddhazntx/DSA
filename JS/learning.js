@@ -70,6 +70,17 @@ const products = [
 
 const names = products.map(product => product.name);
 const id = products.map(product=>product.id);
-const cheapitem = products.filter(product =>{
-    product.price<1000;
+const cheapitem = products.filter(product =>
+    product.price<1000
+);
+
+const finditem = products.find(product=>product.id ==1);
+
+products.forEach(product=>{
+    console.log(product.name);
 });
+
+const total = products.reduce(
+    (sum,products) => sum+products.price,
+    0
+);
